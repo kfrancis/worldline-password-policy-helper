@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Policy Helper - Tests</title>
+  <style>
+    body { font-family: monospace; margin: 20px; background: #1a1a2e; color: #e0e0e0; }
+    h1 { color: #00d4ff; }
+    h2 { color: #ffa500; margin-top: 24px; }
+    .pass { color: #22c55e; }
+    .fail { color: #ef4444; font-weight: bold; }
+    .summary { margin-top: 20px; padding: 12px; border-radius: 6px; font-size: 16px; }
+    .summary.all-pass { background: #14532d; color: #22c55e; }
+    .summary.has-fail { background: #7f1d1d; color: #ef4444; }
+    div.test { margin: 2px 0; }
+  </style>
+</head>
+<body>
+  <h1>Password Policy Helper - Tests</h1>
+  <div id="results"></div>
+  <div id="summary"></div>
+  <script type="module" src="tests.js"></script>
+</body>
+</html>

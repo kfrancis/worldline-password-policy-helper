@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Policy Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="fix">Fix</button>
+      <button class="tab" data-tab="generate">Generate</button>
+      <button class="tab" data-tab="validate">Validate</button>
+    </div>
+
+    <!-- Fix Tab -->
+    <div id="tab-fix" class="tab-content active">
+      <div class="input-row">
+        <input type="text" id="fix-input" placeholder="Paste password or read from page" spellcheck="false" autocomplete="off">
+        <button id="fix-read-btn" class="btn-small" title="Read password from page">Read</button>
+      </div>
+      <button id="fix-btn" class="btn-primary">Fix Password</button>
+      <div id="fix-result" class="result-area" hidden>
+        <label class="result-label">Fixed password:</label>
+        <div id="fix-diff" class="password-display"></div>
+        <div class="actions">
+          <button id="fix-copy-btn" class="btn-action">Copy</button>
+          <button id="fix-fill-btn" class="btn-action">Fill on Page</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate Tab -->
+    <div id="tab-generate" class="tab-content" hidden>
+      <div class="slider-row">
+        <label>Length: <strong id="gen-length-display">24</strong></label>
+        <input type="range" id="gen-length" min="8" max="40" value="24">
+      </div>
+      <button id="gen-btn" class="btn-primary">Generate Password</button>
+      <div id="gen-result" class="result-area" hidden>
+        <label class="result-label">Generated password:</label>
+        <div id="gen-password" class="password-display"></div>
+        <div class="actions">
+          <button id="gen-copy-btn" class="btn-action">Copy</button>
+          <button id="gen-fill-btn" class="btn-action">Fill on Page</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Validate Tab -->
+    <div id="tab-validate" class="tab-content" hidden>
+      <input type="text" id="validate-input" placeholder="Type or paste password to validate" spellcheck="false" autocomplete="off">
+    </div>
+
+    <!-- Validation Checklist (always visible) -->
+    <div id="validation-checklist">
+      <div class="rule" data-rule="1"><span class="icon"></span> At least 8 characters</div>
+      <div class="rule" data-rule="2"><span class="icon"></span> At least 1 uppercase letter</div>
+      <div class="rule" data-rule="3"><span class="icon"></span> At least 1 lowercase letter</div>
+      <div class="rule" data-rule="4"><span class="icon"></span> At least 1 special character (#?!@$%^&*-)</div>
+      <div class="rule" data-rule="5"><span class="icon"></span> At least 1 digit</div>
+      <div class="rule" data-rule="6"><span class="icon"></span> No character repeated more than 2 times</div>
+    </div>
+
+    <div id="status-msg" class="status-msg" hidden></div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
