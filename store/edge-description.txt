@@ -1,0 +1,29 @@
+Password Policy Helper fixes a common frustration with enterprise password reset pages — particularly the Worldline PCI Portal — that enforce a strict policy most password managers cannot satisfy: no character (case-sensitive) may appear more than 2 times in the password.
+
+If you use 1Password, Bitwarden, or any password manager that generates long random passwords, you've likely hit this wall. The generated password gets rejected, you tweak it by hand, it gets rejected again, and the cycle repeats. This extension breaks that cycle.
+
+FEATURES
+
+Fix Tab — The primary feature. Paste a password or read it directly from the page's password field. The fixer identifies every character that appears more than twice and replaces only the excess occurrences. Replacements are drawn from the same character class: an uppercase letter is replaced with a different uppercase letter, a digit with a different digit, and so on. This keeps the password as close to the original as possible. Changed characters are highlighted in yellow so you can see exactly what was modified. One click to copy it to your clipboard or fill it back into the page.
+
+Generate Tab — Creates a fully compliant password from scratch. Use the length slider to choose between 8 and 40 characters (default 24). Every generated password is validated before it's shown to you.
+
+Validate Tab — Type or paste any password and see a real-time checklist of all six policy rules, each marked with a green checkmark or red X as you type.
+
+PASSWORD POLICY RULES
+
+The extension validates against all six rules simultaneously:
+1. At least 8 characters
+2. At least 1 uppercase letter (A-Z)
+3. At least 1 lowercase letter (a-z)
+4. At least 1 special character from the set: # ? ! @ $ % ^ & * -
+5. At least 1 digit (0-9)
+6. No character (case-sensitive) appears more than 2 times
+
+Rule 6 is the one that trips up password managers. For example, "AAxA" is rejected because uppercase A appears 3 times, but "AAxa" is allowed because uppercase A appears twice and lowercase a appears once.
+
+PRIVACY AND SECURITY
+
+This extension processes everything locally in your browser. No passwords are transmitted anywhere — there are no network requests, no analytics, no external servers. The source code uses no external dependencies. All randomness is generated using the browser's built-in crypto.getRandomValues() API for cryptographic security. The extension only activates its content script on worldline-pciportal.com. The popup tools (Fix, Generate, Validate) work on any page when you click the extension icon.
+
+Open source under the MIT license. Source code available on GitHub.
