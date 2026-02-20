@@ -1,6 +1,8 @@
-# Password Policy Helper
+# Worldline Password Policy Helper
 
-Chrome extension that fixes 1Password-generated passwords to comply with strict enterprise password policies that limit character repetition.
+Edge extension that fixes 1Password-generated passwords to comply with strict enterprise password policies that limit character repetition.
+
+https://microsoftedge.microsoft.com/addons/detail/password-policy-helper/iejllkmhkglceamonfmknamaigmlebcf
 
 ## Problem
 
